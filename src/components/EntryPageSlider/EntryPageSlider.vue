@@ -25,10 +25,10 @@
                 <div id="pangbai">
                     <div id="pangbai-content">
                         <div id="big-font">
-                            网站改版, 全新界面风格
+                            优化加速网络连接, 保护隐私
                         </div>
                         <div id="small-font">
-                            Baacloud官网已全新改版，如果使用遇到问题，请联系客服反馈。网上存在山寨假冒网站，谨防上当受骗。
+                            遍布各地的优质加速节点，为专业人士、海外商务提供可靠加速服务，通过加密协议保护网络数据，有效加固个人隐私。
                         </div>
                     </div>
                 </div>
@@ -41,10 +41,10 @@
                 <div id="pangbai">
                     <div id="pangbai-content">
                         <div id="big-font">
-                            网站改版, 全新界面风格
+                            多平台支持, 易于使用
                         </div>
                         <div id="small-font">
-                            Baacloud官网已全新改版，如果使用遇到问题，请联系客服反馈。网上存在山寨假冒网站，谨防上当受骗。
+                            兼容各主流系统平台使用，拥有专用客户端软件。账号不受平台限制，真正做到一号通用，随时随地获取安全网络。
                         </div>
                     </div>
                 </div>
@@ -80,14 +80,29 @@ export default {
     },
     methods: {
         show (i) {
-            dotArr[this.sign].style.setProperty("background-color", "#d8d8d8", "important")
-            dotArr[this.sign].style.setProperty("border", "#d8d8d8 solid 1px", "important")
-            eleArr[this.sign].style.setProperty("visibility", "hidden", "important")
-            this.sign = i
-            console.log(i)
-            dotArr[i].style.setProperty("background-color", "#ffffff", "important")
-            dotArr[i].style.setProperty("border", "#689f38 solid 1px", "important")
-            eleArr[i].style.setProperty("visibility", "visible", "important")
+            if (i < this.sign) {
+                dotArr[this.sign].style.setProperty("background-color", "#d8d8d8", "important")
+                dotArr[this.sign].style.setProperty("border", "#d8d8d8 solid 1px", "important")
+                eleArr[this.sign].style.setProperty("animation", "formertoright 1s", "important")
+                eleArr[this.sign].style.setProperty("visibility", "hidden", "important")
+                this.sign = i
+                dotArr[i].style.setProperty("background-color", "#ffffff", "important")
+                dotArr[i].style.setProperty("border", "#689f38 solid 1px", "important")
+                eleArr[i].style.setProperty("visibility", "visible", "important")
+                eleArr[i].style.setProperty("animation", "lattertoright 1s", "important")
+            }
+            else if (i > this.sign) {
+                console.log('bug')
+                dotArr[this.sign].style.setProperty("background-color", "#d8d8d8", "important")
+                dotArr[this.sign].style.setProperty("border", "#d8d8d8 solid 1px", "important")
+                eleArr[this.sign].style.setProperty("animation", "formertoleft 1s", "important")
+                eleArr[this.sign].style.setProperty("visibility", "hidden", "important")
+                this.sign = i
+                dotArr[i].style.setProperty("background-color", "#ffffff", "important")
+                dotArr[i].style.setProperty("border", "#689f38 solid 1px", "important")
+                eleArr[i].style.setProperty("visibility", "visible", "important")
+                eleArr[i].style.setProperty("animation", "lattertoleft 1s", "important")
+            }
             i++
             i = i % 3
             if (typeof recycle !== undefined) {
@@ -106,7 +121,7 @@ export default {
     position: relative;
     height: 500px;
     width: 100%;
-    /* z-index: 0; */
+    overflow: hidden;
 }
 
 #slider-single {
@@ -158,7 +173,6 @@ export default {
     top: -50px;
     width: 100%;
     height: 100px;
-    /* z-index: 1; */
 }   
 
 #three-dot-block {
@@ -190,5 +204,63 @@ export default {
 
 .display {
     visibility: visible !important;
+}
+
+
+@keyframes formertoright {
+    0% {
+        left: 0%;
+        visibility: visible;
+    }
+    100% {
+        left: 100%;
+        visibility: hidden;
+    }
+}
+@keyframes lattertoright {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+/* @keyframes lattertoleft {
+    0% {
+        right: 0%;
+        visibility: visible;
+        background-color: #000;
+    }
+    100% {
+        right: 100%;
+        visibility: hidden;
+        background-color: #000;
+    }
+}
+@keyframes lattertoleft {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0%;
+    }
+} */
+@keyframes formertoleft {
+    0% {
+        left: 0%;
+        visibility: visible;
+    }
+    100% {
+        left: -100%;
+        visibility: hidden;
+    }
+}
+@keyframes lattertoleft {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0%;
+    }
 }
 </style>
