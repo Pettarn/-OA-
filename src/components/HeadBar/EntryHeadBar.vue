@@ -2,7 +2,7 @@
     <div id="headbar">
         <!-- 商标 -->
         <div id="headbar-brand">
-            <div style="font-size: 1.5em; ">OAMS</div>
+            <div style="font-size: 1.5em; cursor: pointer;">OAMS</div>
             <p style="font-size: 1.5em;">|</p>
             <div style="font-size: 0.9em;">快速、稳定的企业OA办公管理平台</div>
         </div>
@@ -72,6 +72,7 @@ export default {
 
 #headbar-content-normal:hover {
     background-color: #367fa9;
+    cursor: pointer;
 }
 
 #headbar-content-button {
@@ -85,5 +86,6 @@ export default {
 }
 #headbar-content-button:hover {
     background-color: #367fa9;
+    cursor: pointer;
 }
 </style>
