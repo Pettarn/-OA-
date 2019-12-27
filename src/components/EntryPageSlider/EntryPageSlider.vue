@@ -4,7 +4,7 @@
             <!-- 第一张图 -->
             <div id="slider-single" class="slider">
                 <div id="image">
-                    <img style="height: 50%; width: 70%;" src="../../assets/slider-1.png"></img>
+                    <img style="height: 50%; width: 70%;" src="../../assets/slider-1.png" />
                 </div>
                 <div id="pangbai">
                     <div id="pangbai-content">
@@ -20,7 +20,7 @@
             <!-- 第二张图 -->
             <div id="slider-single" class="slider">
                 <div id="image">
-                    <img style="height: 50%; width: 70%;" src="../../assets/slider-2.png"></img>
+                    <img style="height: 50%; width: 70%;" src="../../assets/slider-2.png" />
                 </div>
                 <div id="pangbai">
                     <div id="pangbai-content">
@@ -36,7 +36,7 @@
             <!-- 第三张图 -->
             <div id="slider-single" class="slider">
                 <div id="image">
-                    <img style="height: 50%; width: 70%;" src="../../assets/slider-3.png"></img>
+                    <img style="height: 50%; width: 70%;" src="../../assets/slider-3.png" />
                 </div>
                 <div id="pangbai">
                     <div id="pangbai-content">

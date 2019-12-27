@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <entry-head-bar></entry-head-bar>
-    <entry-page-slider></entry-page-slider>
+    <personal-head-bar></personal-head-bar>
+    <personal-index-page></personal-index-page>
     <router-view/>
   </div>
 </template>
@@ -10,6 +10,9 @@
 import EntryHeadBar from './components/HeadBar/EntryHeadBar'
 import Login from './components/Login/Login'
 import EntryPageSlider from './components/EntryPageSlider/EntryPageSlider'
+import Register from './components/register/register'
+import PersonalHeadBar from './components/HeadBar/PersonalHeadBar'
+import PersonalIndexPage from './components/PersonalIndexPage/PersonalIndexPage'
 
 
 export default {
@@ -17,7 +20,29 @@ export default {
   components: {
     EntryHeadBar,
     Login,
-    EntryPageSlider
+    EntryPageSlider,
+    Register,
+    PersonalHeadBar,
+    PersonalIndexPage
+  },
+  mounted () {
+    this.printf()
+  },
+  data () {
+    return {
+      pageHeight: {
+        height: '',
+      }
+    }
+  },
+  methods: {
+    printf () {
+      let body = document.getElementsByTagName('body')
+      let app = document.getElementById('app')
+      app.style.setProperty('height', `${window.innerHeight - 60}px`, 'important')
+      body[0].style.setProperty('height', `${window.innerHeight}px`, 'important')
+      console.log(body[0].style.height)
+    }
   }
 }
 </script>
@@ -33,6 +58,8 @@ body {
 #app {
   position: relative;
   width: 100%;
+  height: 100%;
+  max-height: 100%;
   padding: 0px;
   margin: 0px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
