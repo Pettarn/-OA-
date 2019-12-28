@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <personal-head-bar></personal-head-bar>
-    <personal-index-page></personal-index-page>
+    <entry-head-bar></entry-head-bar>
+    <login></login>
+    <!-- <entry-page-slider></entry-page-slider> -->
     <router-view/>
   </div>
 </template>
@@ -26,7 +27,7 @@ export default {
     PersonalIndexPage
   },
   mounted () {
-    this.printf()
+    this.setHeight()
   },
   data () {
     return {
@@ -36,7 +37,7 @@ export default {
     }
   },
   methods: {
-    printf () {
+    setHeight () {
       let body = document.getElementsByTagName('body')
       let app = document.getElementById('app')
       app.style.setProperty('height', `${window.innerHeight - 60}px`, 'important')
