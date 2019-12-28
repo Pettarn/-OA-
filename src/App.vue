@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <entry-head-bar></entry-head-bar>
-    <login></login>
-    <!-- <entry-page-slider></entry-page-slider> -->
+    <register></register>
     <router-view/>
   </div>
 </template>
