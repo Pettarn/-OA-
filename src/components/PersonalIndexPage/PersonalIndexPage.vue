@@ -3,7 +3,9 @@
         <div id="page-content">
             <page-content></page-content>
         </div>
-        <div id="page-main"></div>
+        <div id="page-main">
+            <router-view />
+        </div>
     </div>
 </template>
 
@@ -12,6 +14,15 @@ import PageContent from './PageContent'
 export default {
     components: {
         PageContent
+    },
+    mounted () {
+        this.setHeight()
+    },
+    methods: {
+        setHeight () {
+            let page = document.getElementById('page')
+            page.style.setProperty('height', `${window.innerHeight - 60}px`, 'important')
+        }
     }
 }
 </script>

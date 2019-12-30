@@ -55,6 +55,7 @@
         <div id="register-submit">
             <div>注册账号</div>
         </div>
+        <router-view />
     </div>
 </template>
 

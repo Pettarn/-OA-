@@ -14,7 +14,7 @@
             <div id="page-content-action-signin">
                 <div @click="signin = !signin" id="signin">签到中心</div>
                 <div v-if="signin" id="signin-details">
-                    <div>签到</div>
+                    <router-link tag="div" to="/user/attendence">签到</router-link>
                     <div>签到记录</div>
                     <div>签到设置</div>
                 </div>

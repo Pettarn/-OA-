@@ -2,7 +2,7 @@
     <div id="background">
         <div id="opacity"></div>
         <div id="login" :class="{ hidden: isHidden }">
-            <div id="login-close" @click="isHidden = !isHidden;">×</div>
+            <div id="login-close" @click="hidden">×</div>
             <div id="login-headbar">
                 <div id="login-headbar-title">账号登录</div>
             </div>
@@ -29,7 +29,7 @@
             </div>
             <div id="login-other">
                 <div>忘记密码</div>
-                <div>还没注册</div>
+                <div @click="register">还没注册</div>
             </div>
         </div>
     </div>
@@ -41,6 +41,9 @@ export default {
         setTimeout(() => {
             this.isHidden = false
         }, 0)
+        if (typeof recycle !== undefined) {
+            clearInterval(recycle)
+        }
     },
     data () {
         return {
@@ -48,8 +51,12 @@ export default {
         }
     },
     methods: {
-        setHeight () {
-
+        hidden () {
+            this.isHidden = true
+            this.$router.push('/')
+        },
+        register () {
+            this.$router.push('/register')
         }
     }
 }

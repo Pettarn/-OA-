@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <entry-head-bar></entry-head-bar>
     <router-view/>
   </div>
 </template>
@@ -40,7 +39,6 @@ export default {
       let app = document.getElementById('app')
       app.style.setProperty('height', `${window.innerHeight}px`, 'important')
       body[0].style.setProperty('height', `${window.innerHeight}px`, 'important')
-      console.log(body[0].style.height)
     }
   }
 }

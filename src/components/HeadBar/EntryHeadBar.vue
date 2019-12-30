@@ -14,10 +14,10 @@
             <div id="headbar-content-normal">帮助</div>
             <div id="headbar-content-normal">关于</div>
             <div>
-                <div id="headbar-content-button">登录</div>
+                <div id="headbar-content-button" @click="login">登录</div>
             </div>
             <div>
-                <div id="headbar-content-button">注册</div>
+                <div id="headbar-content-button" @click="register">注册</div>
             </div>
         </div>
     </div>
@@ -25,7 +25,14 @@
 
 <script>
 export default {
-    
+    methods: {
+        login () {
+            this.$router.push('/login')
+        },
+        register () {
+            this.$router.push('/register')
+        }
+    }
 }
 </script>
 

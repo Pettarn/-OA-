@@ -94,7 +94,6 @@ export default {
                 eleArr[i].style.setProperty("animation", "lattertoright 1s", "important")
             }
             else if (i > this.sign) {
-                console.log('bug')
                 dotArr[this.sign].style.setProperty("background-color", "#d8d8d8", "important")
                 dotArr[this.sign].style.setProperty("border", "#d8d8d8 solid 1px", "important")
                 eleArr[this.sign].style.setProperty("animation", "formertoleft 1s", "important")
