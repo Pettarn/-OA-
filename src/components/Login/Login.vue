@@ -1,5 +1,6 @@
 <template>
     <div id="background">
+        <div id="opacity"></div>
         <div id="login" :class="{ hidden: isHidden }">
             <div id="login-close" @click="isHidden = !isHidden;">×</div>
             <div id="login-headbar">
@@ -36,12 +37,19 @@
 
 <script>
 export default {
-    mounted () {
-        
+    created () {
+        setTimeout(() => {
+            this.isHidden = false
+        }, 0)
     },
     data () {
         return {
-            isHidden: false,
+            isHidden: true,
+        }
+    },
+    methods: {
+        setHeight () {
+
         }
     }
 }
@@ -49,19 +57,30 @@ export default {
 
 <style scoped>
 #background {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 0;
     height: 100%;
     width: 100%;
-    background-color: #7f7f7f;
+}
+
+#opacity {
+    height: 100%;
+    width: 100%;
+    background-color: #1e1e1e;
+    opacity: 0.5;
 }
 
 .hidden {
-    top: -400px !important;
+    top: -460px !important;
+    overflow: hidden;
 }
 
 #login {
     position: absolute;
     left: 50%;
-    top: 60px;
+    top: 0;
     transform: translateX(-50%);
     height: 400px;
     width: 300px;
@@ -69,6 +88,7 @@ export default {
     border-radius: 5px;
     border-radius: 10px;
     transition: top 1s ease;
+    opacity: 1;
 }
 
 #login-headbar {
@@ -81,7 +101,7 @@ export default {
     border-radius: 10px 10px 0 0;
     color: #3c9bd3;
     font-size: 1.5em;
-    z-index: 1;
+    z-index: 11;
     border-bottom: solid 1px #e5e5e5;
 }
 
@@ -91,7 +111,7 @@ export default {
     top: 10px;
     color: #cbcbcb;
     font-size: 1.5em;
-    z-index: 10;
+    z-index: 12;
 }
 #login-close:hover {
     color: #7f7f7f;

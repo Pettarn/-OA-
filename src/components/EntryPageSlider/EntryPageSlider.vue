@@ -57,6 +57,7 @@
                 <div class="dot" @click="show(2)"></div>
             </div>
         </div>
+        <router-view />
     </div>
 </template>
 
@@ -77,6 +78,7 @@ export default {
         window.recycle = setInterval(() => {
             this.show(1)
         }, 2000)
+        
     },
     methods: {
         show (i) {
@@ -110,7 +112,7 @@ export default {
             }
             window.recycle = setInterval(() => {
                 this.show(i)
-            }, 2000)
+            }, 7000)
         },
     }
 }
@@ -172,7 +174,7 @@ export default {
     justify-content: center;
     top: -50px;
     width: 100%;
-    height: 100px;
+    height: auto;
 }   
 
 #three-dot-block {

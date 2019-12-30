@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <entry-head-bar></entry-head-bar>
-    <register></register>
     <router-view/>
   </div>
 </template>
@@ -39,7 +38,7 @@ export default {
     setHeight () {
       let body = document.getElementsByTagName('body')
       let app = document.getElementById('app')
-      app.style.setProperty('height', `${window.innerHeight - 60}px`, 'important')
+      app.style.setProperty('height', `${window.innerHeight}px`, 'important')
       body[0].style.setProperty('height', `${window.innerHeight}px`, 'important')
       console.log(body[0].style.height)
     }
