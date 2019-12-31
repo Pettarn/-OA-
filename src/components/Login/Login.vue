@@ -9,14 +9,14 @@
             <div id="form">
                 <div id="email">
                     <label>
-                        <div>邮箱</div>
-                        <input type="email" />
+                        <div>账号</div>
+                        <input type="text" v-model="user_no" />
                     </label>
                 </div>
                 <div id="password">
                     <label>
                         <div>密码</div>
-                        <input type="password" />
+                        <input type="password" v-model="user_password" />
                     </label>
                 </div>
                 <div id="state">
@@ -25,7 +25,7 @@
                         在此设备上保持登录状态
                     </label>
                 </div>
-                <div id="button">登录</div>
+                <div id="button" @click="submit">登录</div>
             </div>
             <div id="login-other">
                 <div>忘记密码</div>
@@ -36,18 +36,22 @@
 </template>
 
 <script>
+import { login } from '../../api/user'
+
 export default {
     created () {
         setTimeout(() => {
             this.isHidden = false
         }, 0)
         if (typeof recycle !== undefined) {
-            clearInterval(recycle)
+            clearInterval(window.recycle)
         }
     },
     data () {
         return {
             isHidden: true,
+            user_no: null,
+            user_password: null,
         }
     },
     methods: {
@@ -57,6 +61,16 @@ export default {
         },
         register () {
             this.$router.push('/register')
+        },
+        submit () {
+            let parameter = {
+                user_no: this.user_no,
+                user_password: this.user_password
+            }
+            login(parameter)
+            .then(function (data) {
+                console.log(data)
+            })
         }
     }
 }

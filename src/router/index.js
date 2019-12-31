@@ -8,6 +8,7 @@ import EntryPageSlider from '../components/EntryPageSlider/EntryPageSlider.vue'
 import Login from '../components/Login/Login.vue'
 import Register from '../components/register/register.vue'
 import Attendence from '../components/actions/Attendence.vue'
+import NetDisk from '../components/actions/NetDisk.vue'
 
 
 Vue.use(Router)
@@ -47,6 +48,10 @@ export default new Router({
         {
           path: 'attendence',
           component: Attendence
+        },
+        {
+          path: 'netdisk',
+          component: NetDisk
         }
       ]
     }

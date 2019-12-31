@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { Base64 } from 'js-base64'
+// import { Base64 } from 'js-base64'
 
 export default {
     methods: {
@@ -43,7 +43,14 @@ export default {
             let ctx = canvas.getContext('2d');
             //绘图
             ctx.drawImage(video, 0, 0, 400, 400);
-            let code = Base64.encode(ctx)
+            canvas.toBlob(function (blob) {
+                let fileReader = new FileReader()
+                fileReader.readAsDataURL(blob)
+                fileReader.onload = function () {
+                    let code = this.result
+                    console.log(code)
+                }
+            }, 'image/png')
         }
     }
 };
@@ -65,6 +72,10 @@ export default {
 
 #attend-button {
     margin-top: 20px;
+}
+
+#video {
+    border: 1px solid green;
 }
 
 </style>

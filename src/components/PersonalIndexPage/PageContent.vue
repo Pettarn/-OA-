@@ -1,6 +1,6 @@
 <template>
     <div id="page-content">
-        <div id="page-content-user">
+        <!-- <div id="page-content-user">
             <div id="page-content-user-image"></div>
             <div id="page-content-user-name">
                 <div id="name">1225076678</div>
@@ -9,7 +9,7 @@
                     <div id="state-name">在线</div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div id="page-content-action">
             <div id="page-content-action-signin">
                 <div @click="signin = !signin" id="signin">签到中心</div>
@@ -31,7 +31,7 @@
                 <div @click="netmemory = !netmemory" id="netmemory">网上硬盘</div>
                 <div v-if="netmemory" id="netmemory-details">
                     <div>公共网盘</div>
-                    <div>我的网盘</div>
+                    <router-link to="/user/netdisk" tag="div">我的网盘</router-link>
                 </div>
             </div>
             <div id="page-content-action-conference">
@@ -75,7 +75,7 @@ export default {
     height: 100%;
     min-height: 100%;
     width: 100%;
-    background-color: #222d32;
+    background-color: #3c3c3c;
     overflow-x: hidden;
 }
 
