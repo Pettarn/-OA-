@@ -23,7 +23,7 @@
                 <div @click="ground = !ground" id="ground">个人中心</div>
                 <div v-if="ground" id="ground-details">
                     <div>个人信息</div>
-                    <div>修改资料</div>
+                    <!-- <router-link to="" tag="div">修改资料</router-link> -->
                     <div>修改密码</div>
                 </div>
             </div>

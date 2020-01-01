@@ -7,32 +7,36 @@
             <div id="register-item-title">
                 <div>账号名称</div>
             </div>
-            <div id="form">
-                <input type="text" placeholder="不支持特殊字符">
+            <!-- 0 -->
+            <div id="form" class="form">
+                <input type="text" v-model="user_no" @click="debounce(setUserNumberStyle, 50)()" placeholder="不支持特殊字符">
             </div>
         </div>
         <div id="register-email">
             <div id="register-item-title">
-                <div>电子邮箱</div>
+                <div>电话号码</div>
             </div>
-            <div id="form">
-                <input type="text" placeholder="填写常用邮箱以免遗漏通知">
+            <!-- 1 -->
+            <div id="form" class="form">
+                <input type="text" v-model="user_name"  placeholder="填写常用电话以免遗漏通知">
             </div>
         </div>
         <div id="register-password">
             <div id="register-item-title">
                 <div>设置密码</div>
             </div>
-            <div id="form">
-                <input type="text" placeholder="设置账号密码">
+            <!-- 2 -->
+            <div id="form" class="form">
+                <input type="text" v-model="user_password" @input="debounce(setPasswordStyle, 50)()" placeholder="设置账号密码">
             </div>
         </div>
         <div id="register-passwordagain">
             <div id="register-item-title">
                 <div>重复密码</div>
             </div>
-            <div id="form">
-                <input type="text" placeholder="重新输入账号密码">
+            <!-- 3 -->
+            <div id="form" class="form">
+                <input type="text" v-model="user_passwordagain" @input="debounce(setPasswordagainStyle, 50)()" placeholder="重新输入账号密码">
             </div>
         </div>
         <div id="register-getcheckword">
@@ -40,10 +44,11 @@
         </div>
         <div id="register-emailcheck">
             <div id="register-item-title">
-                <div>邮箱验证</div>
+                <div>短信验证</div>
             </div>
-            <div id="form">
-                <input type="text" placeholder="输入邮箱受到的验证码">
+            <!-- 4 -->
+            <div id="form" class="form">
+                <input type="text" placeholder="输入短信受到的验证码">
             </div>
         </div>
         <div id="register-contract">
@@ -52,7 +57,7 @@
                 服务条款
             </div>
         </div>
-        <div id="register-submit">
+        <div id="register-submit" @click="submit">
             <div>注册账号</div>
         </div>
         <router-view />
@@ -60,8 +65,79 @@
 </template>
 
 <script>
+import { register } from '../../api/user'
+
 export default {
-    
+    data () {
+        return {
+            user_no: null,
+            user_name: null,
+            user_password: null,
+            user_passwordagain: null,
+        }
+    },
+    methods: {
+        submit () {
+            let parameter = {
+                user_no: this.user_no,
+                user_name: this.user_name,
+                user_password: this.user_password
+            }
+            register(parameter)
+            .then(function (data) {
+                console.log(data)
+            })
+        },
+        setUserNumberStyle () {
+            let el = document.getElementsByClassName('form')
+            function check (str) {
+                if (str.search(/[_+-=()*&^%$@!]/ig) !== -1) {
+                    return false
+                } else {
+                    return true
+                }
+            }
+            if (!check(this.user_no)) {
+                el[0].style.setProperty('border', '1px solid red', 'important')
+            } else {
+                el[0].style.setProperty('border', '1px solid #cccccc', 'important')
+            }
+        },
+        setPasswordagainStyle () {
+            let el = document.getElementsByClassName('form')
+            if (this.user_password !== this.user_passwordagain) {
+                el[3].style.setProperty('border', '1px solid red', 'important')
+            } else {
+                el[3].style.setProperty('border', '1px solid #cccccc', 'important')
+            }
+        },
+        setPasswordStyle () {
+            let el = document.getElementsByClassName('form')
+            function check (str) {
+                if (str.search(/[a-z]+/i) === -1) {
+                    return false
+                } else {
+                    return true
+                }
+            }
+            if (!check(this.user_password)) {
+                el[2].style.setProperty('border', '1px solid red', 'important')
+            } else {
+                el[2].style.setProperty('border', '1px solid #cccccc', 'important')
+            }
+        },
+        
+        debounce (func, delay) {
+            let timer = null
+            return function () {
+                if (timer) {
+                    clearInterval(timer)
+                } else {
+                    timer = setInterval(func, delay)
+                }
+            }
+        }
+    }
 }
 </script>
 

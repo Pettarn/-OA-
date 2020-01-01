@@ -3,7 +3,7 @@
         <div id="headbar-brand">
             Baacloud
         </div>
-        <div id="headbar-hidden">
+        <div id="headbar-hidden" @click="extend">
             ×
         </div>
         <div id="headbar-personal-setting">
@@ -15,7 +15,18 @@
 
 <script>
 export default {
-    
+    data () {
+        return {
+            isExtend: this.$store.state.isExtend
+        }
+    },
+    methods: {
+        extend () {
+            this.isExtend = !this.isExtend
+            this.$store.commit('SET_ISEXTEND', this.isExtend)
+            console.log(this.$store.state.isExtend)
+        }
+    }
 }
 </script>
 

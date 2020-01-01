@@ -1,2 +1,4 @@
-let i = 2
-console.log((i+2)%3)
+let str = '12'
+let res = str.search(/[a-z]+/ig)
+
+console.log(res)
