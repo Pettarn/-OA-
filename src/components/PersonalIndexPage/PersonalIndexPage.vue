@@ -3,7 +3,7 @@
         <div id="page-content" :class="{hidden: isExtend}">
             <page-content></page-content>
         </div>
-        <div id="page-main">
+        <div id="page-main" :class="{extend: isExtend}">
             <router-view />
         </div>
     </div>
@@ -22,7 +22,6 @@ export default {
         PageContent
     },
     mounted () {
-        console.log(this.isExtend)
         this.setHeight()
     },
     methods: {
@@ -49,20 +48,29 @@ export default {
     height: 100%;
 }
 #page-content {
-    position: relative;
+    position: absolute;
+    left: 0%;
     width: 17%;
-    height: auto;
+    height: 100%;
     background-color: #324777;
-    transition: all 1s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 #page-main {
-    position: relative;
+    position: absolute;
     width: 83%;
-    height: auto;
+    right: 0%;
+    height: 100%;
     background-color: #ffffff;
+    transition: all .5s ease-in-out;
 }
+
 .hidden {
-    width: 0% !important;
-    transition: all 1s ease-in;
+    left: -17% !important;
+    width: 0%;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+}
+.extend {
+    width: 100% !important;
 }
 </style>

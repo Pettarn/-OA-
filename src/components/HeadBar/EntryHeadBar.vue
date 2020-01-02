@@ -14,10 +14,10 @@
             <div id="headbar-content-normal">帮助</div>
             <div id="headbar-content-normal">关于</div>
             <div>
-                <div id="headbar-content-button" @click="login">登录</div>
+                <div id="headbar-content-button" @click="handleFirstBtn">{{ firstBtnVal }}</div>
             </div>
             <div>
-                <div id="headbar-content-button" @click="register">注册</div>
+                <div id="headbar-content-button" @click="handleSecondBtn">{{ secondBtnVal }}</div>
             </div>
         </div>
     </div>
@@ -25,12 +25,44 @@
 
 <script>
 export default {
+    data () {
+        return {
+        }
+    },
     methods: {
-        login () {
-            this.$router.push('/login')
+        handleFirstBtn () {
+            if (this.$store.state.isLogin) {
+                this.$router.push('/user')
+            } else {
+                this.$router.push('/login')
+            }
         },
-        register () {
-            this.$router.push('/register')
+        handleSecondBtn () {
+            if (this.$store.state.isLogin) {
+                this.$store.commit('SET_ISLOGIN', false)
+            } else {
+                this.$router.push('/register')
+            }
+        }
+    },
+    computed: {
+        firstBtnVal: {
+            get () {
+                if (this.$store.state.isLogin) {
+                    return '我的账户'
+                } else {
+                    return '登录'
+                }
+            }
+        },
+        secondBtnVal: {
+            get () {
+                if (this.$store.state.isLogin) {
+                    return '退出登录'
+                } else {
+                    return '注册'
+                }
+            }
         }
     }
 }
@@ -87,7 +119,8 @@ export default {
     justify-content: center;
     align-items: center;
     height: 60%;
-    width: 70%;
+    width: 90%;
+    /* padding: auto 20px; */
     border-radius: 5px;
     border: white solid 1px;
 }
