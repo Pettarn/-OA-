@@ -23,8 +23,8 @@
                 <div @click="ground = !ground" id="ground">个人中心</div>
                 <div v-if="ground" id="ground-details">
                     <div>个人信息</div>
-                    <!-- <router-link to="" tag="div">修改资料</router-link> -->
-                    <div>修改密码</div>
+                    <router-link to="/user/updateUserInfo" tag="div">修改资料</router-link>
+                    <router-link to="/user/repass" tag="div">修改密码</router-link>
                 </div>
             </div>
             <div id="page-content-action-netmemory">

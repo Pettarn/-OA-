@@ -9,6 +9,8 @@ import Login from '../components/Login/Login.vue'
 import Register from '../components/register/register.vue'
 import Attendence from '../components/actions/Attendence.vue'
 import NetDisk from '../components/actions/NetDisk.vue'
+import UpdateUserInfo from '../components/actions/UpdateUserInfo.vue'
+import Repass from '../components/actions/Repass.vue'
 
 
 Vue.use(Router)
@@ -52,6 +54,14 @@ export default new Router({
         {
           path: 'netdisk',
           component: NetDisk
+        },
+        {
+          path: 'updateUserInfo',
+          component: UpdateUserInfo
+        },
+        {
+          path: 'repass',
+          component: Repass
         }
       ]
     }

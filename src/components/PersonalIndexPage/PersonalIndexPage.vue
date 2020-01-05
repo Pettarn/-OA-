@@ -60,7 +60,7 @@ export default {
     width: 83%;
     right: 0%;
     height: 100%;
-    background-color: #ffffff;
+    background-color: #ecf0f5;
     transition: all .5s ease-in-out;
 }
 

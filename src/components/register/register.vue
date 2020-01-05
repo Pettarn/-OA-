@@ -91,7 +91,7 @@ export default {
         setUserNumberStyle () {
             let el = document.getElementsByClassName('form')
             function check (str) {
-                if (str.search(/[_+-=()*&^%$@!]/ig) !== -1) {
+                if (str.search(/[+-=()*&^%$@!]/ig) !== -1) {
                     return false
                 } else {
                     return true
@@ -132,6 +132,7 @@ export default {
             return function () {
                 if (timer) {
                     clearInterval(timer)
+                    timer = setInterval(func, delay)
                 } else {
                     timer = setInterval(func, delay)
                 }

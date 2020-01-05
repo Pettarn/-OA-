@@ -1,25 +1,23 @@
 <template>
     <div id="update">
-        <div id="update-left">
-            <div id="update-title">
-                <div id="update-title-bigger">信息更新</div>
-                <div id="update-title-smaller">Profile Update</div>
-            </div>
-            <div id="update-userInfo">
-                <div id="update-userInfo-topbar"></div>
-                <div>
-                    <input type="text" placeholder="用户账号">
-                </div>
-                <div>
-                    <input type="text" placeholder="用户名称">
-                </div>
-                <div id="submit">
-                    <div id="submit-button">修改</div>
-                </div>
-            </div>
+        <div id="update-title">
+            <div id="update-title-bigger">更换密码</div>
+            <div id="update-title-smaller">Change password</div>
         </div>
-        <div id="update-right">
-
+        <div id="update-password">
+            <div id="update-password-topbar"></div>
+            <div>
+                <input type="password" placeholder="当前密码(必填)">
+            </div>
+            <div>
+                <input type="password" placeholder="新密码">
+            </div>
+            <div>
+                <input type="password" placeholder="确认密码">
+            </div>
+            <div id="submit">
+                <div id="submit-button">修改</div>
+            </div>
         </div>
     </div>
 </template>
@@ -32,23 +30,11 @@ export default {
 
 <style scoped>
 #update {
-    display: flex;
-    justify-content: start;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
+    padding-left: 20px;
     /* background-color: #000; */
-}
-
-#update-left {
-    margin-left: 20px;
-    width: 40%;
-    height: auto;
-}
-#update-right {
-    width: 40%;
-    height: auto;
-    margin-left: 100px;
-    background-color: #000;
 }
 
 #update-title {
@@ -79,51 +65,42 @@ export default {
     margin-left: 10px;
 }
 
-#update-userInfo {
+#update-password {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 45%;
     background-color: #ffffff;
     padding-top: 20px;
     border-radius: 5px;
     overflow: hidden;
 }
-#update-userInfo>div {
+#update-password>div {
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 95%;
-    /* height: 40px; */
+    height: 40px;
     margin-bottom: 15px;
     /* border: 1px solid #d2d6de; */
     overflow: hidden;
 }
-#update-userInfo>div>input {
+#update-password>div>input {
     outline: none;
     border: solid 1px #d2d6de;
     width: 95%;
-    /* height: 80%; */
-    height: 32px;
+    height: 80%;
     border-radius: 3px;
     padding-left: 20px;
 }
 
-#update-userInfo>div>textarea {
-    outline: none;
-    border: solid 1px #d2d6de;
-    width: 95%;
-    height: 100px;
-    border-radius: 3px;
-    padding-left: 20px;
-}
-
-#update-userInfo>div>input:focus {
+#update-password>div>input:focus {
     border: solid 1px #3c8dbc;
 }
 
-#update-userInfo-topbar {
+#update-password-topbar {
     position: absolute;
     top: 0;
     left: 0;
