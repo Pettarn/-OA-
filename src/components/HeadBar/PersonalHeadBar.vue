@@ -4,16 +4,20 @@
             Baacloud
         </div>
         <div id="headbar-hidden" @click="extend">
-            ×
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shousuohou"></use>
+            </svg>
         </div>
         <div id="headbar-personal-setting">
-            <div  id="headbar-personal-setting-headimage"></div>
-            <div id="headbar-personal-setting-name"></div>
+            <div id="headbar-personal-setting-headimage"></div>
+            <div id="headbar-personal-setting-name">213</div>
         </div>
+        <div id="headbar-logout">退出登录</div>
     </div>
 </template>
 
 <script>
+
 export default {
     data () {
         return {
@@ -31,6 +35,14 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
 #headbar {
     position: relative;
     display: flex;
@@ -68,10 +80,10 @@ export default {
     cursor: pointer;
 }
 #headbar-personal-setting {
-    display: flex;
     position: absolute;
-    right: 3%;
+    display: flex;
     height: 100%;
+    right: 150px;
     width: 15%;
     background-color: #3c8dbc;
 }
@@ -86,8 +98,26 @@ export default {
 }
 
 #headbar-personal-setting-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 70%;
 }
 
+#headbar-logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    right: 20px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#headbar-logout:hover {
+    background-color: #367fa9;
+}
 </style>

@@ -12,7 +12,14 @@
         </div> -->
         <div id="page-content-action">
             <div id="page-content-action-signin">
-                <div @click="signin = !signin" id="signin">签到中心</div>
+                <div @click="signin = !signin" id="signin">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-wanggeshitu"></use>
+                        </svg>
+                    </div>
+                    <div style="margin-left: 10px;">签到中心</div>
+                </div>
                 <div v-if="signin" id="signin-details">
                     <router-link tag="div" to="/user/attendence">签到</router-link>
                     <div>签到记录</div>
@@ -20,7 +27,14 @@
                 </div>
             </div>
             <div id="page-content-action-ground">
-                <div @click="ground = !ground" id="ground">个人中心</div>
+                <div @click="ground = !ground" id="ground">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-geren"></use>
+                        </svg>
+                    </div>
+                    <div style="margin-left: 10px;">个人中心</div>
+                </div>
                 <div v-if="ground" id="ground-details">
                     <div>个人信息</div>
                     <router-link to="/user/updateUserInfo" tag="div">修改资料</router-link>
@@ -28,21 +42,42 @@
                 </div>
             </div>
             <div id="page-content-action-netmemory">
-                <div @click="netmemory = !netmemory" id="netmemory">网上硬盘</div>
+                <div @click="netmemory = !netmemory" id="netmemory">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-wenjianjia"></use>
+                        </svg>
+                    </div>
+                    <div style="margin-left: 10px;">网上硬盘</div>
+                </div>
                 <div v-if="netmemory" id="netmemory-details">
                     <div>公共网盘</div>
                     <router-link to="/user/netdisk" tag="div">我的网盘</router-link>
                 </div>
             </div>
             <div id="page-content-action-conference">
-                <div @click="conference = !conference" id="conference">会议中心</div>
+                <div @click="conference = !conference" id="conference">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-jiaoliu"></use>
+                        </svg>
+                    </div>
+                    <div style="margin-left: 10px;">会议中心</div>
+                </div>
                 <div v-if="conference" id="conference-details">
                     <div>申请会议</div>
                     <div>审批状态</div>
                 </div>
             </div>
             <div id="page-content-action-myposition">
-                <div @click="myposition = !myposition" id="myposition">我的职位</div>
+                <div @click="myposition = !myposition" id="myposition">
+                    <div>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-shangjiantou"></use>
+                        </svg>
+                    </div>
+                    <div style="margin-left: 10px;">我的职位</div>
+                </div>
                 <div v-if="myposition" id="myposition-details">
                     <div>职位申请</div>
                     <div>申请职位</div>
@@ -68,6 +103,14 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
 #page-content {
     overflow-y: scroll;
     scrollbar-track-color: aqua;
@@ -115,8 +158,9 @@ export default {
 #signin, #ground, #netmemory, #conference, #myposition {
     position: relative;
     display: flex;
+    justify-content: start;
     align-items: center;
-    padding-left: 35px;
+    padding-left: 20px;
     height: 45px;
     width: 100%;
     color: #b8c7ce;

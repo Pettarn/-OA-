@@ -19,14 +19,39 @@
             </div>
         </div>
         <div id="update-right">
-
+            <div id="update-title">
+                <div id="update-title-bigger">头像更新</div>
+                <div id="update-title-smaller">Image Update</div>
+            </div>
+            <div id="update-image">
+                <div id="update-userInfo-topbar"></div>
+                
+                <div id="upload">
+                    <div>
+                        <img src="" id="preview" alt="Image preview..." />
+                    </div>
+                    <div>
+                        <input type="file" @change="show" >
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    
+    methods: {
+        show (e) {
+            let preview = document.getElementById('preview')
+            let file = document.querySelector("input[type='file']").files[0]
+            let fileReader = new FileReader()
+            fileReader.readAsDataURL(file)
+            fileReader.addEventListener('load', function () {
+                preview.src = fileReader.result
+            })
+        }
+    }
 }
 </script>
 
@@ -45,10 +70,13 @@ export default {
     height: auto;
 }
 #update-right {
+    /* width: 60px;
+    height: 60px;
+    margin-left: 100px;
+    background-color: #000; */
+    margin-left: 20px;
     width: 40%;
     height: auto;
-    margin-left: 100px;
-    background-color: #000;
 }
 
 #update-title {
@@ -78,6 +106,19 @@ export default {
     font-size: 1em;
     margin-left: 10px;
 }
+
+#update-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
 
 #update-userInfo {
     position: relative;
@@ -133,12 +174,21 @@ export default {
 }
 
 #submit {
+    position: relative;
     display: flex !important;
+    height: 60px;
+    width: 100%;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: start !important;
+}
+
+#upload {
+    position: relative;
+    display: grid !important;
+    grid-template-rows: 80% 20%;
     width: 100%;
-    height: 60px;
+    height: 100px;
     /* background-color: #000; */
 }
 
@@ -152,6 +202,7 @@ export default {
     height: 40px;
     cursor: pointer;
     color: white;
+    margin-left: 10px;
 }
 
 #submit-button:hover {

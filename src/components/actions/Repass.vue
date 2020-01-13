@@ -7,24 +7,35 @@
         <div id="update-password">
             <div id="update-password-topbar"></div>
             <div>
-                <input type="password" placeholder="当前密码(必填)">
+                <input type="password" v-model="curPass" placeholder="当前密码(必填)">
             </div>
             <div>
-                <input type="password" placeholder="新密码">
+                <input type="password" v-model="newPass" placeholder="新密码">
             </div>
             <div>
-                <input type="password" placeholder="确认密码">
+                <input type="password" v-model="checkPass" placeholder="确认密码">
             </div>
             <div id="submit">
-                <div id="submit-button">修改</div>
+                <div id="submit-button" @click="submit">修改</div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { repass } from '../../api/user'
+
 export default {
-    
+    data () {
+        return {
+            
+        }
+    },
+    methods: {
+        submit () {
+
+        }
+    }
 }
 </script>
 
