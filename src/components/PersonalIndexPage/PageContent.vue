@@ -122,6 +122,17 @@ export default {
     overflow-x: hidden;
 }
 
+#page-content::-webkit-scrollbar {
+    width: 15px;
+}
+
+#page-content:hover::-webkit-scrollbar-thumb {
+    background-color: #515151;
+}
+#page-content:hover::-webkit-scrollbar-thumb:hover {
+    background-color: #8e8e8e;
+}
+
 #page-content-user {
     position: relative;
     display: flex;

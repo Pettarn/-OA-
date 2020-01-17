@@ -2,7 +2,7 @@
     <div id="netdisk">
         <div id="netdisk-headbar"><span style="">{{ name }}</span><span>的网盘</span></div>
         <div id="netdisk-content">
-            <right-arrow></right-arrow>
+
         </div>
     </div>
     
@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 #netdisk {
     position: absolute;
     top: 50%;
@@ -47,7 +49,7 @@ export default {
 
 #netdisk-content {
     height: 90%;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 </style>
