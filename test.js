@@ -1,4 +1,9 @@
-let str = '12'
-let res = str.search(/[a-z]+/ig)
+let file = document.querySelector('input[type=file]').files[0]
+let preview = document.querySelector('img')
 
-console.log(res)
+let fileReader = new FileReader()
+fileReader.readAsDataURL(file)
+fileReader.onload = function () {
+    preview.src = fileReader.result
+}
+

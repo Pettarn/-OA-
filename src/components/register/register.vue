@@ -85,7 +85,7 @@ export default {
             }
             register(parameter)
             .then(function (data) {
-                console.log(data)
+                this.$router.push('/login')
             })
         },
         setUserNumberStyle () {
@@ -131,10 +131,10 @@ export default {
             let timer = null
             return function () {
                 if (timer) {
-                    clearInterval(timer)
-                    timer = setInterval(func, delay)
+                    clearTimeout(timer)
+                    timer = setTimeout(func, delay)
                 } else {
-                    timer = setInterval(func, delay)
+                    timer = setTimeout(func, delay)
                 }
             }
         }

@@ -3,5 +3,7 @@ export default {
     isExtend: false,
     // 用户是否注册
     isLogin: false,
+    // 用户个人详细信息
+    userInfo: null
     
 }

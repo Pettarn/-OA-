@@ -12,6 +12,9 @@ import NetDisk from '../components/actions/NetDisk.vue'
 import UpdateUserInfo from '../components/actions/UpdateUserInfo.vue'
 import Repass from '../components/actions/Repass.vue'
 
+// chat 组件
+import Chat from '../components/chat/ChatFrame.vue'
+
 
 Vue.use(Router)
 
@@ -64,6 +67,10 @@ export default new Router({
           component: Repass
         }
       ]
+    },
+    {
+      path: '/chat',
+      component: Chat
     }
   ]
 })

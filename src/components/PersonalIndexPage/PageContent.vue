@@ -122,16 +122,17 @@ export default {
     overflow-x: hidden;
 }
 
+/* 自定义滚动条 */
 #page-content::-webkit-scrollbar {
     width: 15px;
 }
-
 #page-content:hover::-webkit-scrollbar-thumb {
     background-color: #515151;
 }
 #page-content:hover::-webkit-scrollbar-thumb:hover {
     background-color: #8e8e8e;
 }
+
 
 #page-content-user {
     position: relative;
@@ -177,6 +178,7 @@ export default {
     color: #b8c7ce;
     cursor: pointer;
 }
+
 #signin:hover, #ground:hover, #netmemory:hover, #conference:hover, #myposition:hover {
     color: #ffffff;
     background-color: #1e282c;

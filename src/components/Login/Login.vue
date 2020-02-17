@@ -69,7 +69,8 @@ export default {
             }
             login(parameter)
             .then(function (data) {
-                console.log(data)
+                this.$router.push('/user')
+                this.$store.state.commit
             })
         }
     }

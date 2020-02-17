@@ -1,16 +1,26 @@
 <template>
     <div id="netdisk">
         <div id="netdisk-headbar"><span style="">{{ name }}</span><span>的网盘</span></div>
+        <div id="netdisk-addbutton">
+            <div>
+                <svg class="icon addfile" aria-hidden="true">
+                    <use xlink:href="#icon-addfile"></use>
+                </svg>
+            </div>
+            <div>
+                <svg class="icon tianjiawenjian" aria-hidden="true">
+                    <use xlink:href="#icon-tianjiawenjian"></use>
+                </svg>
+            </div>
+        </div>
         <div id="netdisk-content">
-
+            
         </div>
     </div>
     
 </template>
 
 <script>
-import RightArrow from '../icons/RightArrow'
-import RightLowerArrow from '../icons/RightLowerArrow'
 
 export default {
     data () {
@@ -19,14 +29,19 @@ export default {
         }
     },
     components: {
-        RightArrow,
-        RightLowerArrow
     }
 }
 </script>
 
 <style scoped>
-
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  cursor: pointer;
+}
 
 #netdisk {
     position: absolute;
@@ -50,6 +65,24 @@ export default {
 #netdisk-content {
     height: 90%;
     overflow-y: scroll;
+}
+
+#netdisk-addbutton {
+    position: absolute;
+    display: flex;
+    height: 10%;
+    width: 70px;
+    right: 0;
+    top: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 20px;
+    color: grey;
+}
+
+#netdisk-addbutton>div:active {
+    color: #000;
 }
 
 </style>

@@ -41,15 +41,19 @@
 
 <script>
 export default {
+    created () {
+        console.log('bug')
+    },
     methods: {
-        show (e) {
+        show () {
             let preview = document.getElementById('preview')
             let file = document.querySelector("input[type='file']").files[0]
             let fileReader = new FileReader()
             fileReader.readAsDataURL(file)
             fileReader.addEventListener('load', function () {
                 preview.src = fileReader.result
-            })
+                console.log(preview.src)
+            }, false)
         }
     }
 }
@@ -70,13 +74,8 @@ export default {
     height: auto;
 }
 #update-right {
-    /* width: 60px;
-    height: 60px;
-    margin-left: 100px;
-    background-color: #000; */
     margin-left: 20px;
     width: 40%;
-    height: auto;
 }
 
 #update-title {
@@ -116,7 +115,11 @@ export default {
     background-color: #ffffff;
     padding-top: 20px;
     border-radius: 5px;
-    overflow: hidden;
+}
+#preview {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
 }
 
 
@@ -185,11 +188,9 @@ export default {
 
 #upload {
     position: relative;
-    display: grid !important;
-    grid-template-rows: 80% 20%;
-    width: 100%;
-    height: 100px;
-    /* background-color: #000; */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 #submit-button {
